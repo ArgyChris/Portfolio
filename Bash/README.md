@@ -1,6 +1,6 @@
-# Exercise 1: UNIX script
+# UNIX script
 
-The purpose of this exercise was to write a UNIX bash script that could find files with a certain, predefined, suffix below a target location. It would also include a switch to apply a regular expression in order to select the files.
+This project purpose is to write a UNIX bash script that could find files with a certain, predefined, suffix below a target location. It also includes a switch to apply a regular expression in order to select the files.
 
 ## Getting Started
 
@@ -13,7 +13,7 @@ The prerequisite structure that the script was developed and tested included som
 Go to the directory where the script is located. In order to be able to run the script, change the permission:
 
 ```
-sudo chmod +x Exercise1.sh
+sudo chmod +x BashFile.sh
 ```
 ## General Structure
 
@@ -29,19 +29,19 @@ The output is .txt file that contains the selected file names in absolutes path,
 An example to run the code is given:
 
 ```
-argy@Argy:~/Desktop/Roche_Exercise_Argyrios/Exercise_1$ ./Exercise1.sh /home/argy/Desktop/Roche_Exercise_Argyrios/Exercise_1/ .txt /home/argy/Desktop/Roche_Exercise_Argyrios/Exercise_1/output.txt f......t
+argy@Argy:/home/argy/Portfolio/Bash$ ./BashFile.sh /home/argy/Portfolio/Bash/ .txt /home/argy/Portfolio/Bash/output.txt f......t
 ```
 The previous outputs:
 ```
 Input variables:
-pathlocation:/home/argy/Desktop/Roche_Exercise_Argyrios/Exercise_1/
+pathlocation:/home/argy/Portfolio/Bash/
 suffix:.txt
-output filename:/home/argy/Desktop/Roche_Exercise_Argyrios/Exercise_1/output.txt
+output filename:/home/argy/Portfolio/Bash/output.txt
 regular expression:f......t
 
 The input pathlocation is a directory
 Write files that satisfy the regular expression: f......t
-Target file for the output: /home/argy/Desktop/Roche_Exercise_Argyrios/Exercise_1/output.txt
+Target file for the output: /home/argy/Portfolio/output.txt
 Success
 
 ```
