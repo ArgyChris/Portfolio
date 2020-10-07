@@ -2,9 +2,7 @@
 
 The purpose of this project was to analyse the output of DNA sequence instrument. The SequencingData 300718.dat file is an example of data from a sequencing instrument. Briefly, the sequencing operation proceeds in “cycles”, at each cycle a specific fluorescent dye is attached to the next DNA base in the sequence, and a camera measures the intensity at the frequency characteristic of each of the 4 dyes. In principle, there should only be a signal in the channel corresponding to the next base in the sequence.
 
-The purpose of this project was to implement the gradient descent on a single neuron, the perceptron, using numpy only. In addition, to verify if the neuron worked, I performed training on the boston housing market dataset, and compare its inference with the standard regression from sklearn.
-
-## Getting Started
+## Information about the data
 
 1. Row 4: Is the true sequence of bases (known in this case)
 2. Rows 6-9: Are the predicted intensities for 70 cycles of sequencing, in each of the 4 channels. The increase in intensity is due to a (planned) increase in the illumination
@@ -14,30 +12,12 @@ The purpose of this project was to implement the gradient descent on a single ne
 
 The code requires the script and the dataset (mass_boston) in a .csv form located in the same folder. Additionally, some important pre-installed modules are required in order for the code to run. 
 
-### Installing
+## Questions
 
-Go to the directory where the script is located. In order to be able to run the script, change the permission:
-
-```
-$sudo chmod +x Perceptron_code.py
-```
-
-Besides the permission change, install the following libraries:
-
-
-```
-$sudo pip install numpy
-$sudo pip install matplotlib
-$sudo pip install sklearn
-```
-
-## Code General Structure 
-
-1. The first step is the data loading and cleaning. The data contain a header with the parameter/column name that I do not consider in the rest of my code. 
-2. The next step is the data separation in the training and testing sets. Here, I call SeparateTrainingTestData() which splits randomly the data according to a predefined ratio: 70% for training and 30% for testing.
-3. The main training module of the perceptron is launched. The chosen cost function is the root mean square error and the activation function the linear one. The partial derivatives of the cost function with respect to the parameters, weights and bias, are computed. I define GradientDescentOpimizationFunction() to perform the task, which in turn is used in TrainingGradientDescent() to iteratively optimizes the parameters as I go throught the training set. The gradient update is performed considering only one row (iteration) at a time, while the weights/bias are updated when I finish processing the whole training set (epoch).
-4. The next step is the evaluation and testing of the perceptron in the dataset.
-5. Finally, I compare the perceptron against the regression from the sklearn module in the testing set. Firstly, I fit the linear regressor on the training set, after that I make the prediction in the testing, and finally I plot the perceptron versus the sklearn prediction in the same plot. 
+1. Is there a good match between the observation and the prediction?
+2. If not, could the difference be characterised between them?
+3. Could the quantitative value of this effect be estimated?
+4. The intensity values come from a “cluster” of identical strands of DNA: in theory the sequencing process should operate identically on each strand in the cluster. Could anything be infered about how the sequencing process is actually working?
 
 ## Running the code
 
