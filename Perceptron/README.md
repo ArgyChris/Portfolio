@@ -1,4 +1,4 @@
-# Exercise 2: The perceptron versus the regressor
+# The perceptron versus the regressor
 
 The purpose of this project was to implement the gradient descent on a single neuron, the perceptron, using numpy only. In addition, to verify if the neuron worked, I performed training on the boston housing market dataset, and compare its inference with the standard regression from other sources.
 
@@ -57,7 +57,7 @@ Plotting the two predictions
 RMSE perceptron: 8.79350971204
 RMSE sklearn regression: 4.56535881959
 ```
-Finally, it plots in a graph the predicted price versus the medv price in the case of the perceptron inference,
+Finally, it plots in a graph (PerceptronVSRegressor.jpeg) the predicted price versus the medv price in the case of the perceptron inference,
 and the linear regression from the sklearn. It appears that the perceptron results are very close to the results from the perceptron.
 
 ## Authors
