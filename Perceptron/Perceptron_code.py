@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-# The previous line is the shebang line to define to use python
+#!/usr/bin/env python3
+# The previous line is the shebang line to define to use python3
 # (effort for PEP 8 style compliance, check with pycodestyle)
 
 # load important modules
@@ -132,7 +132,7 @@ if __name__ == '__main__':
     the regression in the boston housing market
 
     Example usage:
-        ./Exercise2.py
+        ./Perceptron_code.py
     """
     # data reading and cleaning
     print('Read the .csv file')
