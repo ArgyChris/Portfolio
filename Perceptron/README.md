@@ -1,6 +1,6 @@
 # The perceptron versus the regressor
 
-The purpose of this project was to implement the gradient descent on a single neuron, the perceptron, using numpy only. In addition, to verify if the neuron worked, I performed training on the boston housing market dataset, and compare its inference with the standard regression from other sources.
+The purpose of this project was to implement the gradient descent on a single neuron, the perceptron, using numpy only. In addition, to verify if the neuron worked, I performed training on the boston housing market dataset, and compare its inference with the standard regression from sklearn.
 
 ## Getting Started
 
