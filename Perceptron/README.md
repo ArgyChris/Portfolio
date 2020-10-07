@@ -1,19 +1,19 @@
 # Exercise 2: The perceptron versus the regressor
 
-The purpose of this exercise was to implement the perceptron. The only available tool was the python numpy. In addition, to verify if the neuron worked, I had to perform training on the boston housing market dataset, and compare its inference with the standard regression from other sources.
+The purpose of this project was to implement the gradient descent on a single neuron, the perceptron, using numpy only. In addition, to verify if the neuron worked, I performed training on the boston housing market dataset, and compare its inference with the standard regression from other sources.
 
 ## Getting Started
 
 ### Prerequisites
 
-The code requires the script and the dataset in a .csv form located in the same folder. Additionally, some important pre-installed modules are required in order for the code to run. 
+The code requires the script and the dataset (mass_boston) in a .csv form located in the same folder. Additionally, some important pre-installed modules are required in order for the code to run. 
 
 ### Installing
 
 Go to the directory where the script is located. In order to be able to run the script, change the permission:
 
 ```
-$sudo chmod +x Exercise2.py
+$sudo chmod +x Perceptron_code.py
 ```
 
 Besides the permission change, install the following libraries:
@@ -38,7 +38,7 @@ $sudo pip install sklearn
 An example to run the code is given:
 
 ```
-argy@Argy:~/Desktop/Roche_Exercise_Argyrios/Exercise_2$ ./Exercise2.py
+argy@laptop:~/Portfolio/Perceptron$ ./Perceptron_code.py
 ```
 The previous outputs:
 ```
