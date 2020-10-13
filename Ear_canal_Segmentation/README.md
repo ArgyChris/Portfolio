@@ -16,13 +16,18 @@ Masks are binary images of the various anatomical structures we need to segment,
 
 ### Code
 
-1. Task_Segmentation_1st_script.ipynb and Task_Segmentation_2nd_script.ipynb contain the python code for the exploration of the dataset, of various measurements, and the automatisation by template matching.
+<ol>
+<li> Task_Segmentation_1st_script.ipynb and Task_Segmentation_2nd_script.ipynb contain the python code for the exploration of the dataset, of various measurements, and the automatisation by template matching. </li>
 
-2. The matlab folder contains:
-    3. The subfolder Tensor_Voting (Tensor_Voting_Segmentation.m) for the initial segmentation of the structure using the tensor voting approach.
-    4. The subfolder Active_Surfaces (running_Active_Surfaces.m) for refinement of the segmentation using the active surfaces approach. 
-    5. The subfolder Measurements for the comparison of the segmentation against the mask, and various measurments.
-
+<li>
+The matlab folder contains:
+<ul>
+    <li> The subfolder Tensor_Voting (Tensor_Voting_Segmentation.m) for the initial segmentation of the structure using the tensor voting approach. </li>
+    <li> The subfolder Active_Surfaces (running_Active_Surfaces.m) for refinement of the segmentation using the active surfaces approach. </li>
+    <li> The subfolder Measurements for the comparison of the segmentation against the mask, and various measurments. </li>
+</ul>
+</li>
+</ol>
 ## Authors
 
 * **Argyrios Christodoulidis** - [email](mailto:argyrios.christodoulidis@gmail.com)
