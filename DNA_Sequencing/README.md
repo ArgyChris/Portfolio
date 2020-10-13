@@ -10,7 +10,7 @@ The purpose of this project was to analyse the output of DNA sequence instrument
 
 ### Prerequisites
 
-The code requires the script and the dataset (SequencingData 300718.dat) located in the same folder. Additionally, some important pre-installed modules are required in order for the code to run. 
+The code requires the script (Case_Study.ipynb) and the dataset (SequencingData 300718.dat) located in the same folder. Additionally, some important pre-installed modules are required in order for the code to run. 
 
 Install the following libraries:
 
@@ -25,6 +25,8 @@ $sudo pip install pandas
 2. If not, could the difference be characterised between them?
 3. Could the quantitative value of this effect be estimated?
 4. The intensity values come from a “cluster” of identical strands of DNA: in theory the sequencing process should operate identically on each strand in the cluster. Could anything be infered about how the sequencing process is actually working?
+
+#Answers
 
 ## Question 1
 
@@ -41,7 +43,7 @@ which is the Hamming distance, this measure compares two sequences and computes 
 at which the corresponding elements are different. This is a simple way to quantitavely examine if differences
 exist and their quantity. To do so, I first normalized the intensities to the range 1.0-0.0, then I found the
 maximum for each cycle, and finally I compared the sequences using the measure. According to the results,
-the match is perfect. Figure 1 shows the result. In the real case scenario, Hamming distance is limited
+the match is perfect. In the real case scenario, Hamming distance is limited
 by the assumption that the sequences are equal in size. Also, the measure does not consider what kind of
 differences are encountered, we can have cases where measurements are missing, are substituted, or deleted.
 Thus, more advanced algorithms, like alignment could be used.
@@ -72,7 +74,7 @@ assumption about the independence of the cycles does not hold.
 For this question I tried to analyze the drift effect. Previously, I have noticed a form of delay in the second
 highest observed intensity when we have a change in the dominantly observed nucleotide. Here, I analyzed
 the difference via computing the cross-correlation between the highest, and the rest of the of distributions
-in the whole sequence. This measure is useful to compare signals with delays. Figure 3 shows that there is
+in the whole sequence. This measure is useful to compare signals with delays. There is
 a positive correlation of 0.17 between the highest and the second highest observed intensities along all the
 sequences. The correlation drops to 0.05 and 0.0 for the third and fourth highest intensities, respectively.
 Furthermore, I compared basic statistics (μ: mean intensity, σ standard deviation) in two cases:
@@ -81,53 +83,28 @@ observed nucleotide (e.g. 21th to 22th cycle)
 2. I considered the second highest intensity only in cycles where we have a perseverance in the dominantly
 observed nucleotide (e.g. 8th to 9th cycle).
 From my analysis I found that there is significant difference (not statistical) between the first and the second
-case (see Figure 3, μ1 = 0.25 vs. μ2 = 0.06). I can conclude that my hypothesis holds and I can quantify it,
+case (see μ1 = 0.25 vs. μ2 = 0.06). I can conclude that my hypothesis holds and I can quantify it,
 so for this case study, as we sequence when there is a transition of the dominant observed nucleotide there
 will be increased signal from the previously step.
 
 ## Question 4
 
-For the last question I tried to analyze the whole sequencing process. From the description, the data,
-and my research, I can infer the following on how the whole sequencing process works:
-1. First, the DNA sequence is broken down in different number of segments. This is done to parallelize
-the whole process and subsequently accelerate it.
-2. The segment of a specific sequence is amplified forming a local cluster of identical sequences. The
-reason for the amplification is that later in the process, we need many segments to achieve good optical
-signal (illumination), and to be able to make the distinction between the different nucleotides.
-3. The next steps constitutes the actual sequencing operation that proceeds in cycles until the whole
-sequence is resolved:
-
-(a) In each cycle free nucleotides are sequentially bind to the next DNA base according to the com-
-plementarity laws: A binds to T, C binds to G, and vice versa. Each nucleotide is in turn binded
-
-with a dye with specific physical properties. The actual sequence process is called sequencing by
-synthesis. Only one fluoroscently tagged nucleotide is added at a time (t). The binding process
-is restricting probably to synchronize the whole process and take advantage of the amplification.
-(b) The residual free nucleotides that did not bind are washed away.
-
-(c) Then, there is a laser that is scanning the optical field and excites the new binded nucleotides.
-Each one emit photons at a characteristic frequency that is detected by a camera. As I showed
-in the previous section, there might be a delay effect in the sequencing so we have detectable
-intensities from previous steps(t-1).
-(d) The process stops when there there is no sequence left, so we have no optical signal, or there is a
-specific encountered stopping sequence.
-4. Then, there is the image acquisition and analysis phase. In this step, the images are corrected for the
-non-uniformities in the background, probably normalized and enhanced. The background correction
-is performed locally and adaptively. We can have cases where the background noise is higher than
-the intensity from the channel that corresponds to the non-binded nucleotides, so the final intensity
-measurements are negative.
-5. From the clean image there is the signal extraction process from the whole cluster. The process works
-along the different channels that represent the different dyes. The intensities might be normalized and
-compared.
-6. Sequences originating from different clusters are cleaned, compared, and aligned with the aid of a
-template DNA sequence, having a size in the order of Giga bases. This is done to stitch the available
-sequenced segments obtained from step 1)-5).
-
-7. The subsequent steps are performed on the fully reconstructed sequence, and statistics or measure-
-ments that might be useful are: local deviations from the reference DNA sequence, the distribution of
-
-nucleotides, focus on regions that encode important information, etc.
-
+For the last question I tried to analyze the whole sequencing process. From the description, the data, and my research, I can infer the following on how the whole sequencing process works:
+<ol>
+<li> First, the DNA sequence is broken down in different number of segments. This is done to parallelize the whole process and subsequently accelerate it. </li>
+<li> The segment of a specific sequence is amplified forming a local cluster of identical sequences. The reason for the amplification is that later in the process we need many segments to achieve good optical signal (illumination), and to be able to make the distinction between the different nucleotides. </li>
+<li> The next steps constitutes the actual sequencing operation that proceeds in cycles until the whole sequence is resolved:
+<ul> 
+<li> In each cycle free nucleotides are sequentially bind to the next DNA base according to the complementarity laws: A binds to T, C binds to G, and vice versa. Each nucleotide is in turn binded with a dye with specific physical properties. The actual sequence process is called sequencing by synthesis. Only one fluoroscently tagged nucleotide is added at a time (t). The binding process is restricting probably to synchronize the whole process and take advantage of the amplification. </li>
+<li> The residual free nucleotides that did not bind are washed away. </li>
+<li> Then, there is a laser that is scanning the optical field and excites the new binded nucleotides. Each one emit photons at a characteristic frequency that is detected by a camera. As I showed in the previous section, there might be a delay effect in the sequencing so we have detectable intensities from previous steps(t-1). </li>
+<li> The process stops when there there is no sequence left, so we have no optical signal, or there is a specific encountered stopping sequence.</li>
+ </ul></li>
+<li> Then, there is the image acquisition and analysis phase. In this step, the images are corrected for the non-uniformities in the background, probably normalized and enhanced. The background correction is performed locally and adaptively. We can have cases where the background noise is higher than the intensity from the channel that corresponds to the non-binded nucleotides, so the final intensity measurements are negative.</li>
+<li> From the clean image there is the signal extraction process from the whole cluster. The process works along the different channels that represent the different dyes. The intensities might be normalized and compared. </li>
+<li> Sequences originating from different clusters are cleaned, compared, and aligned with the aid of a template DNA sequence, having a size in the order of Giga bases. This is done to stitch the available sequenced segments obtained from step 1)-5). </li>
+<li> The subsequent steps are performed on the fully reconstructed sequence, and statistics or measurements that might be useful are: local deviations from the reference DNA sequence, the distribution of nucleotides, focus on regions that encode important information, etc. </li>
+</ol> 
 
 ## Authors
 
