@@ -8,7 +8,8 @@ Contains various projects.
 2. CV: My CV
 3. DNA_Sequencing: A case study for DNA sequence analysis
 4. Ear_canal_Segmentation: A project for CT image segmentation
-5. Perceptron: Implementation of perceptron using numpy
+5. Papers: Some selected publications 
+6. Perceptron: Implementation of perceptron using numpy
 
 ## Authors
 
